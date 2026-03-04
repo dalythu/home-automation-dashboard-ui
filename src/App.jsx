@@ -1,12 +1,12 @@
 import './App.css'
-import HomePage from './components/SideBar.jsx'
+import SideBar from './components/SideBar.jsx'
 import MainContent from './components/MainContent.jsx'
 
-function App() {
+export default function App() {
 
   return (
     <>
-      <HomePage /> 
+      <SideBar /> 
       <MainContent />
 
     </>

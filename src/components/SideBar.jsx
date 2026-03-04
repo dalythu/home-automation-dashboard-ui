@@ -2,16 +2,14 @@ import Dashboard from "./Dashboard.jsx"
 import Rooms from "./Rooms.jsx"
 import CurrentRoom from "./CurrentRoom.jsx"
 import Automations from "./Automations.jsx"
+import { NavLink } from "react-router-dom"
 
-export default function Sidebar() {
+export default function SideBar() {
   return (
-    <nav>
-      <ul>
-        <li><button>Dashboard</button></li>
-        <li><button>Rooms</button></li>
-        <li><button>Current Room</button></li>
-        <li><button>Automations</button></li>
-      </ul>
-    </nav>
-  )
+    <div>
+      <NavLink to="/dashboard">Dashboard</NavLink>
+      <NavLink to="/rooms">Rooms</NavLink>
+      <NavLink to="/automations">Automations</NavLink>
+    </div>
+  );
 }
