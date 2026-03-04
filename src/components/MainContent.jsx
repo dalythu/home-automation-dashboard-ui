@@ -1,9 +1,9 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
-import Dashboard from "./Dashboard";
-import Rooms from "./Rooms";
-import Automations from "./Automations";
-import CurrentRoom from "./CurrentRoom";
+import Dashboard from "../pages/Dashboard";
+import Rooms from "../pages/Rooms";
+import Automations from "../pages/Automations";
+import CurrentRoom from "../pages/CurrentRoom";
 
 export default function MainContent() {
   return (
