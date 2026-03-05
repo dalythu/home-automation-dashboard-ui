@@ -1,13 +1,7 @@
 import { Link } from "react-router-dom";
+import { rooms } from "../data/rooms.js"
 
 export default function Rooms() {
-
-  const rooms = [
-    { id: "living-room", name: "Living Room" },
-    { id: "kitchen", name: "Kitchen" },
-    { id: "bedroom", name: "Bedroom" },
-    { id: "bathroom", name: "Bathroom" }
-  ];
 
   return (
     <div>
