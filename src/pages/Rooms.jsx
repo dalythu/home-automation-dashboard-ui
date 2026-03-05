@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Rooms() {
 
   const rooms = [
@@ -13,7 +15,7 @@ export default function Rooms() {
 
       {rooms.map((room) => (
         <div key={room.id}>
-          {room.name}
+          <Link to={`/rooms/${room.id}`}>{room.name}</Link>
         </div>
       ))}
 
