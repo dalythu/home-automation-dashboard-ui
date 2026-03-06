@@ -1,20 +1,28 @@
 import { useParams, Link } from "react-router-dom";
-import { rooms } from "../data/rooms";
 
-export default function RoomDetails() {
+export default function RoomDetails({ rooms, toggleLights }) {
   const { roomId } = useParams();
-  const room = rooms.find((r) => r.id === roomId)
+
+  const room = rooms.find((r) => r.id === roomId);
 
   if (!room) {
-    return <h1>Room not found</h1>
-}
+    return <h1>Room not found</h1>;
+  }
 
   return (
     <div>
-      <h1>Room Details</h1>
-      <p>Room ID: {roomId}</p>
+      <h1>{room.name}</h1>
 
-      <Link to="/rooms">Back to Rooms</Link>
+      <p>Occupied: {room.occupied ? "Yes" : "No"}</p>
+      <p>Lights: {room.lightsOn ? "On" : "Off"}</p>
+
+      <button onClick={() => toggleLights(room.id)}>
+        Toggle Lights
+      </button>
+
+      <div style={{ marginTop: "12px" }}>
+        <Link to="/rooms">Back to Rooms</Link>
+      </div>
     </div>
   );
 }

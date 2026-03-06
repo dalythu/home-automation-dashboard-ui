@@ -1,8 +1,4 @@
-import Dashboard from "../pages/Dashboard.jsx"
-import Rooms from "../pages/Rooms.jsx"
-import CurrentRoom from "../pages/CurrentRoom.jsx"
-import Automations from "../pages/Automations.jsx"
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
 
 export default function SideBar() {
   return (

@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-import { rooms } from "../data/rooms.js"
 
-export default function Rooms() {
-
+export default function Rooms({ rooms }) {
   return (
     <div>
       <h1>Rooms</h1>
@@ -12,7 +10,6 @@ export default function Rooms() {
           <Link to={`/rooms/${room.id}`}>{room.name}</Link>
         </div>
       ))}
-
     </div>
   );
 }

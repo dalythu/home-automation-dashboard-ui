@@ -1,6 +1,6 @@
 export const rooms = [
-  { id: 'living-room', name: 'Living Room' },
-  { id: 'kitchen', name: 'Kitchen' },
-  { id: 'bedroom', name: 'Bedroom' },
-  { id: 'bathroom', name: 'Bathroom' },
+  { id: 'living-room', name: 'Living Room', occupied: false, lightsOn: true },
+  { id: 'kitchen', name: 'Kitchen', occupied: false, lightsOn: false },
+  { id: 'bedroom', name: 'Bedroom', occupied: true, lightsOn: true },
+  { id: 'bathroom', name: 'Bathroom', occupied: false, lightsOn: false },
 ]
