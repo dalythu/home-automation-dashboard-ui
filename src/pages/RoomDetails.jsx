@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import LightCard from "../components/LightCard";
 
 export default function RoomDetails({ rooms, toggleLight }) {
   const { roomId } = useParams();
@@ -21,10 +22,12 @@ export default function RoomDetails({ rooms, toggleLight }) {
         <p>No lights in this room</p>
       ) : (
         room.lights.map((light) => (
-          <div key={light.id}>
-            <p>{light.name} — {light.on ? "On" : "Off"}</p>
-            <button onClick={() => toggleLight(room.id, light.id)}>Toggle</button>
-          </div>
+          <LightCard
+            key={light.id}
+            light={light}
+            roomId={room.id}
+            toggleLight={toggleLight}
+          />
         ))
       )}
 
