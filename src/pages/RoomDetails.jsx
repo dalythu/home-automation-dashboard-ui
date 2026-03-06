@@ -14,15 +14,20 @@ export default function RoomDetails({ rooms, toggleLights }) {
       <h1>{room.name}</h1>
 
       <p>Occupied: {room.occupied ? "Yes" : "No"}</p>
-      <p>Lights: {room.lightsOn ? "On" : "Off"}</p>
 
-      <button onClick={() => toggleLights(room.id)}>
-        Toggle Lights
-      </button>
+      <h2>Lights</h2>
 
-      <div style={{ marginTop: "12px" }}>
-        <Link to="/rooms">Back to Rooms</Link>
-      </div>
+      {room.lights.length === 0 ? (
+        <p>No lights in this room</p>
+      ) : (
+        room.lights.map((light) => (
+          <div key={light.id}>
+            {light.name} — {light.on ? "On" : "Off"}
+          </div>
+        ))
+      )}
+
+      <Link to="/rooms">Back to Rooms</Link>
     </div>
   );
 }
