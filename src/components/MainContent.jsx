@@ -1,11 +1,16 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from 'react-router-dom'
 
-import Dashboard from "../pages/Dashboard";
-import Rooms from "../pages/Rooms";
-import Automations from "../pages/Automations";
-import RoomDetails from "../pages/RoomDetails";
+import Dashboard from '../pages/Dashboard'
+import Rooms from '../pages/Rooms'
+import Automations from '../pages/Automations'
+import RoomDetails from '../pages/RoomDetails'
 
-export default function MainContent({ rooms, toggleLight }) {
+export default function MainContent({
+  rooms,
+  toggleLight,
+  removeLight,
+  addLight,
+}) {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/dashboard" replace />} />
@@ -14,8 +19,15 @@ export default function MainContent({ rooms, toggleLight }) {
       <Route path="/automations" element={<Automations />} />
       <Route
         path="/rooms/:roomId"
-        element={<RoomDetails rooms={rooms} toggleLight={toggleLight} />}
+        element={
+          <RoomDetails
+            rooms={rooms}
+            toggleLight={toggleLight}
+            removeLight={removeLight}
+            addLight={addLight}
+          />
+        }
       />
     </Routes>
-  );
+  )
 }

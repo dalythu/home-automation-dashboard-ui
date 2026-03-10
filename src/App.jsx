@@ -20,7 +20,7 @@ export default function App() {
     fetchRooms()
   }, [])
 
-  async function toggleLight(roomId, lightId) {
+  async function toggleLight(roomId, lightId, currentOn) {
     try {
       const response = await fetch(
         `http://localhost:5001/api/rooms/${roomId}/lights/${lightId}`,
@@ -29,6 +29,7 @@ export default function App() {
           headers: {
             'Content-Type': 'application/json',
           },
+          body: JSON.stringify({ on: !currentOn }),
         },
       )
 
@@ -44,10 +45,61 @@ export default function App() {
     }
   }
 
+  async function removeLight(roomId, lightId) {
+    try {
+      const response = await fetch(
+        `http://localhost:5001/api/rooms/${roomId}/lights/${lightId}`,
+        {
+          method: 'DELETE',
+        },
+      )
+
+      const updatedRoom = await response.json()
+
+      setRoomsState((prevRooms) =>
+        prevRooms.map((room) =>
+          room.id === updatedRoom.id ? updatedRoom : room,
+        ),
+      )
+    } catch (error) {
+      console.error('Failed to remove light:', error)
+    }
+  }
+
+  async function addLight(roomId, lightName) {
+    try {
+      const response = await fetch(
+        `http://localhost:5001/api/rooms/${roomId}/lights`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name: lightName }),
+        },
+      )
+
+      const updatedRoom = await response.json()
+
+      setRoomsState((prevRooms) =>
+        prevRooms.map((room) =>
+          room.id === updatedRoom.id ? updatedRoom : room,
+        ),
+      )
+    } catch (error) {
+      console.error('Failed to add light:', error)
+    }
+  }
+
   return (
     <div className="app-layout">
       <SideBar />
-      <MainContent rooms={roomsState} toggleLight={toggleLight} />
+      <MainContent
+        rooms={roomsState}
+        toggleLight={toggleLight}
+        removeLight={removeLight}
+        addLight={addLight}
+      />
     </div>
   )
 }
