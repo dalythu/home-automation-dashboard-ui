@@ -14,7 +14,7 @@ export default function MainContent({
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/dashboard" replace />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/dashboard" element={<Dashboard rooms={rooms} />} />
       <Route path="/rooms" element={<Rooms rooms={rooms} />} />
       <Route path="/automations" element={<Automations />} />
       <Route
