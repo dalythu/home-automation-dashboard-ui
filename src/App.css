@@ -1,15 +1,106 @@
 .app-layout {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
 }
 
-.app-layout > *:first-child {
-  width: 220px;
-  border-right: 1px solid #ddd;
-  padding: 20px;
+.sidebar {
+  width: 240px;
+  background-color: #111827;
+  color: white;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.app-layout > *:last-child {
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  padding: 12px 14px;
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar a:hover {
+  background-color: #1f2937;
+}
+
+.main-content {
   flex: 1;
-  padding: 30px;
+  padding: 32px;
+  box-sizing: border-box;
+}
+
+.page-title {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #dbe2ea;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.card h2,
+.card h3 {
+  margin-top: 0;
+}
+
+.button-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  background-color: #2563eb;
+  color: white;
+  font-weight: 600;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+input {
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.status-text {
+  color: #4b5563;
+  margin-bottom: 8px;
+}
+
+.link-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+.section-spacing {
+  margin-bottom: 24px;
 }

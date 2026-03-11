@@ -37,7 +37,7 @@ export default function App() {
 
       setRoomsState((prevRooms) =>
         prevRooms.map((room) =>
-          room.id === updatedRoom.id ? updatedRoom : room,
+          room.id === roomId ? updatedRoom : room,
         ),
       )
     } catch (error) {
@@ -58,7 +58,7 @@ export default function App() {
 
       setRoomsState((prevRooms) =>
         prevRooms.map((room) =>
-          room.id === updatedRoom.id ? updatedRoom : room,
+          room.id === roomId ? updatedRoom : room,
         ),
       )
     } catch (error) {
@@ -83,7 +83,7 @@ export default function App() {
 
       setRoomsState((prevRooms) =>
         prevRooms.map((room) =>
-          room.id === updatedRoom.id ? updatedRoom : room,
+          room.id === roomId ? updatedRoom : room,
         ),
       )
     } catch (error) {

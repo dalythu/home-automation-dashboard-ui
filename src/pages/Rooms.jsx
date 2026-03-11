@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
 export default function Rooms({ rooms }) {
   return (
     <div>
-      <h1>Rooms</h1>
+      <h1 className="page-title">Rooms</h1>
 
       {rooms.map((room) => (
         <div key={room.id}>
@@ -11,5 +11,5 @@ export default function Rooms({ rooms }) {
         </div>
       ))}
     </div>
-  );
+  )
 }
