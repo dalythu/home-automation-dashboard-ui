@@ -10,13 +10,17 @@ export default function MainContent({
   toggleLight,
   removeLight,
   addLight,
+  setAllLights,
 }) {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/dashboard" replace />} />
       <Route path="/dashboard" element={<Dashboard rooms={rooms} />} />
       <Route path="/rooms" element={<Rooms rooms={rooms} />} />
-      <Route path="/automations" element={<Automations />} />
+      <Route
+        path="/automations"
+        element={<Automations setAllLights={setAllLights} />}
+      />
       <Route
         path="/rooms/:roomId"
         element={

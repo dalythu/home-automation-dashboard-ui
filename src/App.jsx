@@ -6,17 +6,17 @@ import { useEffect, useState } from 'react'
 export default function App() {
   const [roomsState, setRoomsState] = useState([])
 
-  useEffect(() => {
-    async function fetchRooms() {
-      try {
-        const response = await fetch('http://localhost:5001/api/rooms')
-        const data = await response.json()
-        setRoomsState(data)
-      } catch (error) {
-        console.error('Failed to fetch rooms:', error)
-      }
+  async function fetchRooms() {
+    try {
+      const response = await fetch('http://localhost:5001/api/rooms')
+      const data = await response.json()
+      setRoomsState(data)
+    } catch (error) {
+      console.error('Failed to fetch rooms:', error)
     }
+  }
 
+  useEffect(() => {
     fetchRooms()
   }, [])
 
@@ -91,6 +91,34 @@ export default function App() {
     }
   }
 
+  async function setAllLights(onValue) {
+    try {
+      const requests = []
+
+      roomsState.forEach((room) => {
+        room.lights.forEach((light) => {
+          requests.push(
+            fetch(
+              `http://localhost:5001/api/rooms/${room.id}/lights/${light.id}`,
+              {
+                method: 'PATCH',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ on: onValue }),
+              },
+            ),
+          )
+        })
+      })
+
+      await Promise.all(requests)
+      await fetchRooms()
+    } catch (error) {
+      console.error('Failed to update all lights:', error)
+    }
+  }
+
   return (
     <div className="app-layout">
       <SideBar />
@@ -99,6 +127,7 @@ export default function App() {
         toggleLight={toggleLight}
         removeLight={removeLight}
         addLight={addLight}
+        setAllLights={setAllLights}
       />
     </div>
   )
